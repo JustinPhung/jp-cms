@@ -9,6 +9,7 @@ import {JpCmsModule} from './modules/jp-cms/jp-cms.module';
 import {JpAuthGuardService} from './modules/jp-cms/auth/jp-auth-guard.service';
 import { JpCmsRegisterComponent } from './modules/jp-cms/jp-cms-register/jp-cms-register.component';
 import { JpCmsEditComponent } from './modules/jp-cms/jp-cms-edit/jp-cms-edit.component';
+import { FormsModule } from '@angular/forms';
 
 const ROUTES: Routes = [
   { path: '', component: Page1Component },
@@ -28,6 +29,8 @@ const ROUTES: Routes = [
     JpCmsEditComponent
   ],
   imports: [
+    FormsModule,
+    FormsModule,
     JpCmsModule,
     BrowserModule,
     RouterModule.forRoot(

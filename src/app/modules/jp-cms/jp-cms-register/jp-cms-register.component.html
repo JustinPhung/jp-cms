@@ -1,3 +1,12 @@
-<p>
-  jp-cms-register works!
-</p>
+<div class="text-center">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Register CMS</h1>
+    <label for="inputUsername" class="sr-only">Username</label>
+    <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus [(ngModel)]="form.username">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required [(ngModel)]="form.password">
+    <label for="inputPasswordRepeat" class="sr-only">Password</label>
+    <input type="password" id="inputPasswordRepeat" class="form-control" placeholder="Password (repeat)" name="password2" required [(ngModel)]="form.password2">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+  </form>
+</div>

@@ -6,6 +6,9 @@ import {JpAuthService} from './auth/jp-auth.service';
 import {RouterModule, Routes} from '@angular/router';
 import {JpCmsRegisterComponent} from './jp-cms-register/jp-cms-register.component';
 import {JpCmsEditComponent} from './jp-cms-edit/jp-cms-edit.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 const ROUTES: Routes = [
   { path: 'register', component: JpCmsRegisterComponent },
@@ -15,9 +18,12 @@ const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    MatButtonModule,
+    MatFormFieldModule,
     RouterModule.forChild(
       ROUTES
-    )
+    ),
+    FormsModule
   ],
   declarations: [ JpCmsLoginComponent ],
   providers:    [ JpAuthService, JpAuthGuardService ],

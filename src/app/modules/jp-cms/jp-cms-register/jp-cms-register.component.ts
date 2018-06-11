@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DatabaseService} from '../db/database.service';
 
 @Component({
   selector: 'app-jp-cms-register',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JpCmsRegisterComponent implements OnInit {
 
-  constructor() { }
+  form = {
+    username: '',
+    password: '',
+    password2: ''
+  };
+
+
+  constructor(private db: DatabaseService) { }
 
   ngOnInit() {
+  }
+
+  submitForm(){
+    console.log(this.db.getUserTabe());
   }
 
 }
