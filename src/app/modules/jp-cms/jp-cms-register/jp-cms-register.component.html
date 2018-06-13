@@ -7,6 +7,7 @@
     <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required [(ngModel)]="form.password">
     <label for="inputPasswordRepeat" class="sr-only">Password</label>
     <input type="password" id="inputPasswordRepeat" class="form-control" placeholder="Password (repeat)" name="password2" required [(ngModel)]="form.password2">
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <button class="btn btn-lg btn-primary btn-block" (click)="submitForm()" type="submit">Register</button>
+    <p [hidden]="passwordsMatch">Passwörter stimmen nicht überein</p>
   </form>
 </div>

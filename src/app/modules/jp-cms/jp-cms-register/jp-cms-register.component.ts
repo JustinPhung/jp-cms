@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DatabaseService} from '../db/database.service';
+import {PersistenceService, StorageType} from 'angular-persistence';
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Component({
   selector: 'app-jp-cms-register',
@@ -8,6 +9,8 @@ import {DatabaseService} from '../db/database.service';
 })
 export class JpCmsRegisterComponent implements OnInit {
 
+  passwordsMatch = true;
+
   form = {
     username: '',
     password: '',
@@ -15,13 +18,30 @@ export class JpCmsRegisterComponent implements OnInit {
   };
 
 
-  constructor(private db: DatabaseService) { }
+  constructor( private db: AngularFireDatabase ) {
+    this.db.object('JP_CMS_User').valueChanges().subscribe(
+      user => {
+        if (user !== null) {
+          location.href = window.location.origin + '/login';
+        }
+    }
+    );
+  }
 
   ngOnInit() {
   }
 
-  submitForm(){
-    console.log(this.db.getUserTabe());
+  submitForm() {
+    if (this.form.password !== this.form.password2) {
+      this.passwordsMatch = false;
+      return;
+    }
+    const itemRef = this.db.object('JP_CMS_User');
+    itemRef.update({username: this.form.username, password: this.form.password});
+
+    location.href = window.location.origin + '/login';
+
   }
+
 
 }

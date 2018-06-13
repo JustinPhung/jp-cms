@@ -9,6 +9,10 @@ import {JpCmsEditComponent} from './jp-cms-edit/jp-cms-edit.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from 'src/environments/environment';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+
 
 const ROUTES: Routes = [
   { path: 'register', component: JpCmsRegisterComponent },
@@ -19,6 +23,8 @@ const ROUTES: Routes = [
   imports: [
     CommonModule,
     MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     MatFormFieldModule,
     RouterModule.forChild(
       ROUTES
